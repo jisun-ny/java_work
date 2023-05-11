@@ -89,6 +89,7 @@ public class MyFrame extends JFrame implements ActionListener{
 	   * .equals() 메소드를 이용
 	   */
 	  
+	  //cmd == "send" 이렇게 xxx
 	  if(cmd.equals("send")) {
 		  JOptionPane.showMessageDialog(this, "전송합니다");
 	  }else if(cmd.equals("delete")) {
