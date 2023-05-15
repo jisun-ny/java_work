@@ -18,6 +18,8 @@ import java.sql.ResultSet;
  */
 public class MainClass01 {
 	public static void main(String[] args) {
+		// <<<< SELECT >>>>연습
+		
 		   //DB 연결객체를 담을 지역 변수 만들기
 	      Connection conn=null;
 	      
