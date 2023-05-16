@@ -41,29 +41,31 @@ public class MainClass08 {
 	      }
 	      
 	      //sql문을 대신 실행해 줄 객체의 참조값을 담을 지역변수 미리 만들기
-	      PreparedStatement pstmt = null;
+	      PreparedStatement pstmt= null;
 	      
 	      
 	      try {
-	      String sql = "UPDATE member"
-	    		  + " SET name = ? , addr = ?)"
-	    		  + " WHERE num = ?";
-	      //미완성의 sql문을 전달하면서 PreparedStatement 객체의 참조값 얻어내기
-	      pstmt=conn.prepareStatement(sql);
-	      //PreparedStatement 객체의 메소드를 이용해서 미완성인  sql문으 완성시키기 (?에 값 바인딩하기)
-	      //여기서 1,2,3의 의미는 물음표의 번호 // num, name, addr에 인자 
-	      
-	      //모든 insert, update, delete 문은 다 같은 모양이고 아래부분만 모양이 다름. (select문은 결과가있는거니까 result문이 나와서 조금 다름) String sql = 수정도 잊지말기
-	      //----------------------------------
-	      
-	      pstmt.setString(1, m.name); //1번째 ?에 문자 바인딩
-	      pstmt.setString(2, m.addr); //1번째 ?에 문자 바인딩
-	      pstmt.setInt(3, m.num);
-	      //----------------------------------
-	      
-	      //sql문 실행하기
-	      pstmt.executeUpdate();
-	      System.out.println("회원의 정보를 수정했습니다.");
+				//실행할 미완성의 sql 문
+				String sql="UPDATE member"
+						+ " SET name=?, addr=?"
+						+ " WHERE num=?";
+				//미완성의 sql 문을 전달하면서 PreparedStatement 객체의 참조값 얻어내기
+				pstmt=conn.prepareStatement(sql);
+				//PreparedStatement 객체의 메소드를 이용해서 미완성인 sql 문을 완성시키기(? 에 값 바인딩하기)
+		      //PreparedStatement 객체의 메소드를 이용해서 미완성인  sql문으 완성시키기 (?에 값 바인딩하기)
+		      //여기서 1,2,3의 의미는 물음표의 번호 // num, name, addr에 인자 
+		      
+		      //모든 insert, update, delete 문은 다 같은 모양이고 아래부분만 모양이 다름. (select문은 결과가있는거니까 result문이 나와서 조금 다름) String sql = 수정도 잊지말기
+		      //----------------------------------
+		      
+		      pstmt.setString(1, m.name); //1번째 ?에 문자 바인딩
+		      pstmt.setString(2, m.addr); //1번째 ?에 문자 바인딩
+		      pstmt.setInt(3, m.num);
+		      //----------------------------------
+		      
+		      //sql문 실행하기
+		      pstmt.executeUpdate();
+		      System.out.println("회원의 정보를 수정했습니다.");
 	      } catch (Exception e) {
 	    	  e.printStackTrace();
 	      }
