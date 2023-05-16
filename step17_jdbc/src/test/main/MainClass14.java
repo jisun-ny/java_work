@@ -25,9 +25,9 @@ public class MainClass14 {
 		
 		
 		// 2) MemberDao 객체를 생성해서 update() 메소드를 이용해서 수정하고 성공여부 리턴 받기
-		MemberDao dao = new MemberDao();
-		boolean isSuccess = dao.update(dto);
-		// boolean isSuccess = new MemberDao().update(dto);
+//		MemberDao dao = new MemberDao();
+//		boolean isSuccess = dao.update(dto);
+		 boolean isSuccess = new MemberDao().update(dto);
 		// 위 두줄을 이렇게 한줄로 적어서 일회용으로 사용가능.
 		if(isSuccess) {
 			System.out.println("수정했습니다");
