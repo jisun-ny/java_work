@@ -39,7 +39,7 @@ public class MainClass01 {
 		 * 표현 가능한 범위가 더 넓은 변수에 담긴 내용을 대입하려면
 		 * 명시적으로 casting을 해야 한다.
 		 */
-//		yte tmp2 = iShort; (❌)
+//		byte tmp2 = iShort; (❌)
 		byte tmp2=(byte)iShort;
 		
 		//실수형 변수 선언하고 값 대입하기

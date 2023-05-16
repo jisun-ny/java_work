@@ -27,6 +27,7 @@ public class QuizMain2 {
 			if(i<2) {
 			System.out.print(" | ");
 			}
+			
 		}
 		
 

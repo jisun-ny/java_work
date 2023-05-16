@@ -12,7 +12,7 @@ import test.util.DBConnect;
 /*
  *  Data Access Object 만들어 보기
  *  
- *  - DB 에 insert, update, delete, select 작업을 대신해 주는 객체를 생성할 클래스 설계하기 
+ *  - DB에 insert(), update(), delete(), getList(), getData() 작업을 대신해 주는 객체를 생성할 클래스 설계하기 
  */
 public class MemberDao {
    
