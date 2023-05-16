@@ -4,13 +4,27 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class MainClass02 {
+public class MainClass07 {
 	public static void main(String[] args) {
-		//member 테이블에 추가할 회원의 정보라고 가정
-		int num = 4;
-		String name = "주댕이";
+		//추가할 회원의 정보
+		String name = "주뎅이";
 		String addr = "봉천동";
-		//run했을떄 이 정보가 오라클 db에 들어가게 하기
+		
+		//아래 메소드를 호출해서 위의 회원정보가 DB에 저장되도록 프로그래밍 해보세요
+		//위의 정보를 Member 객체에 담아서 insert() 메소드의 변수에 전달한다.
+		
+		Member newMem = new Member();
+		newMem.name = name;
+		newMem.addr = addr;
+		
+		MainClass07.insert(newMem);
+		//스태틱메소드는 클래스명에 .찍어서 호출
+		
+	}
+	
+	public static void insert(Member mem) {
+		//mem에 담겨진 정보를 이용해서 회원 한명의 정보를 DB에 저장되도록 해보세요
+		//즉 이 메소드를 호출하면 테이블에 저장되면 됨
 		
 		//DB 연결객체를 담을 지역 변수 만들기
 	      Connection conn=null;
@@ -35,7 +49,7 @@ public class MainClass02 {
 	      try {
 	      String sql = "INSERT INTO member"
 	    		  + " (num, name, addr)"
-	    		  + " VALUES(?, ?, ?)";
+	    		  + " VALUES(member_seq.NEXTVAL, ?, ?)";
 	      //미완성의 sql문을 전달하면서 PreparedStatement 객체의 참조값 얻어내기
 	      pstmt=conn.prepareStatement(sql);
 	      //PreparedStatement 객체의 메소드를 이용해서 미완성인  sql문으 완성시키기 (?에 값 바인딩하기)
@@ -43,9 +57,9 @@ public class MainClass02 {
 	      
 	      //모든 insert, update, delete 문은 다 같은 모양이고 아래부분만 모양이 다름. (select문은 결과가있는거니까 result문이 나와서 조금 다름) String sql = 수정도 잊지말기
 	      //----------------------------------
-	      pstmt.setInt(1, num); //1번째 ?에 숫자 바인딩 
-	      pstmt.setString(2, name); //1번째 ?에 문자 바인딩
-	      pstmt.setString(3, addr); //1번째 ?에 문자 바인딩
+	      
+	      pstmt.setString(1, mem.name); //1번째 ?에 문자 바인딩
+	      pstmt.setString(2, mem.addr); //1번째 ?에 문자 바인딩
 	      //----------------------------------
 	      
 	      //sql문 실행하기
@@ -54,8 +68,6 @@ public class MainClass02 {
 	      } catch (Exception e) {
 	    	  e.printStackTrace();
 	      }
-	      
-	      
 	}
 
 }
